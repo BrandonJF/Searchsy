@@ -1,4 +1,4 @@
-package brandonjf.com.searchsy.data.repository
+package brandonjf.com.searchsy.domain
 
 import brandonjf.com.searchsy.data.models.ActiveListing
 import io.reactivex.Single

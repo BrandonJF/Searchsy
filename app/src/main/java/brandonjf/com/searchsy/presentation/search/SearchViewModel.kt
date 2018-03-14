@@ -3,7 +3,7 @@ package brandonjf.com.searchsy.presentation.search
 import android.arch.lifecycle.ViewModel
 import brandonjf.com.searchsy.data.remote.EtsyApiDataSource
 import brandonjf.com.searchsy.data.repository.ListingRepository
-import brandonjf.com.searchsy.presentation.base.BaseViewModel
+import brandonjf.com.searchsy.base.BaseViewModel
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
@@ -11,12 +11,12 @@ import timber.log.Timber
 /**
  * Created by Brandon on 3/11/18.
  */
-class SearchViewModel: ViewModel(), BaseViewModel<SearchIntent, SearchUiModel> {
+class SearchViewModel: ViewModel(), BaseViewModel<SearchIntent, SearchViewState> {
     override fun processIntents(intents: Observable<SearchIntent>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun states(): Observable<SearchUiModel> {
+    override fun states(): Observable<SearchViewState> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

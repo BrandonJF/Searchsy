@@ -1,7 +1,7 @@
 package brandonjf.com.searchsy.data.remote
 
 import brandonjf.com.searchsy.data.models.ActiveListing
-import brandonjf.com.searchsy.data.repository.ListingDataSource
+import brandonjf.com.searchsy.domain.ListingDataSource
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import io.reactivex.Single
 import okhttp3.OkHttpClient

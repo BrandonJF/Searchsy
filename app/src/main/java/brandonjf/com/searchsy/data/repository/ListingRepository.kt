@@ -1,6 +1,7 @@
 package brandonjf.com.searchsy.data.repository
 
 import brandonjf.com.searchsy.data.models.ActiveListing
+import brandonjf.com.searchsy.domain.ListingDataSource
 import io.reactivex.Single
 import timber.log.Timber
 
@@ -12,7 +13,6 @@ import timber.log.Timber
  * @constructor Creates a listing repository.
  */
 class ListingRepository (private val remoteDataSource: ListingDataSource): ListingDataSource {
-
 
     /**
      * Retrieves a list of [ActiveListing] from the data source
