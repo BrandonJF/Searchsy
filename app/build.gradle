@@ -8,15 +8,18 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "brandonjf.com.searchsy"
         minSdkVersion 17
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -25,28 +28,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
     implementation domainDependencies.javaxAnnotation
     implementation domainDependencies.javaxInject
+    implementation domainDependencies.rxAndroid
     implementation domainDependencies.rxKotlin
+    implementation domainDependencies.rxbinding
+    implementation domainDependencies.rxbindingKotlin
     implementation domainDependencies.retrofit
     implementation domainDependencies.rxJava2CallAdapter
     implementation domainDependencies.moshi
     implementation domainDependencies.moshiKotlin
     implementation domainDependencies.moshiConverter
+    implementation domainDependencies.glide
     implementation domainDependencies.stetho
     implementation domainDependencies.stethoOkhttp3
     implementation domainDependencies.timber
     implementation domainDependencies.archRuntime
     implementation domainDependencies.archExtensions
-    implementation 'com.android.support:support-v4:26.1.0'
+    implementation domainDependencies.supportBase
+    implementation domainDependencies.supportAppCompat
+    implementation domainDependencies.supportRecyclerView
+    implementation domainDependencies.supportPalette
+    implementation domainDependencies.supportCardView
     kapt domainDependencies.archCompiler
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

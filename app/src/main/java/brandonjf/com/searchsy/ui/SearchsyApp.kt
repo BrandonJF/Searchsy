@@ -1,6 +1,7 @@
-package brandonjf.com.searchsy
+package brandonjf.com.searchsy.ui
 
 import android.app.Application
+import brandonjf.com.searchsy.BuildConfig
 import com.facebook.stetho.Stetho
 import timber.log.Timber
 import timber.log.Timber.DebugTree

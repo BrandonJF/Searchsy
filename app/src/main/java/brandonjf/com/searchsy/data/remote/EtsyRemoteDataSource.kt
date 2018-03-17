@@ -1,8 +1,9 @@
 package brandonjf.com.searchsy.data.remote
 
 import brandonjf.com.searchsy.data.models.ActiveListing
-import brandonjf.com.searchsy.domain.ListingDataSource
+import brandonjf.com.searchsy.data.repository.ListingRepository
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -14,9 +15,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 /**
  * Created by Brandon on 3/11/18.
  */
-class EtsyApiDataSource : ListingDataSource {
+class EtsyRemoteDataSource : ListingRepository {
     private val API_URL = "https://api.etsy.com/v2/"
-    val api: EtsyApi = getApiInstance()
+    private val api: EtsyApi = getApiInstance()
 
     fun getApiInstance(): EtsyApi {
         return getRetrofitInstance().create(EtsyApi::class.java)
@@ -36,7 +37,7 @@ class EtsyApiDataSource : ListingDataSource {
                 .build()
     }
 
-    override fun getListings(searchTerms: String): Single<List<ActiveListing>> {
+    override fun getListings(searchTerms: String): Observable<List<ActiveListing>> {
         //Need to extract just the listings from the overall network response
         return api.getListings(searchTerms).map { response ->
             response.results

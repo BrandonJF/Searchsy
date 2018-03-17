@@ -67,16 +67,16 @@ data class ActiveListing(
         @Json(name = "taxonomy_path") val taxonomyPath: List<String>,
         @Json(name = "used_manufacturer") val usedManufacturer: Boolean,
         @Json(name = "sku") val sku: List<String>,
-        @Json(name = "MainImage") val mainImage: MainImage
+        @field:Json(name = "MainImage") val mainImage: MainImage
 )
 
 data class MainImage(
         @Json(name = "listing_image_id") val listingImageId: Int,
         @Json(name = "listing_id") val listingId: Int,
-        @Json(name = "url_75x75") val url75x75: String,
-        @Json(name = "url_170x135") val url170x135: String,
-        @Json(name = "url_570xN") val url570xN: String,
-        @Json(name = "url_fullxfull") val urlFullxfull: String
+        @field:Json(name = "url_75x75") val url75x75: String,
+        @field:Json(name = "url_170x135") val url170x135: String,
+        @field:Json(name = "url_570xN") val url570xN: String,
+        @field:Json(name = "url_fullxfull") val urlFullxfull: String
 )
 
 data class Pagination(

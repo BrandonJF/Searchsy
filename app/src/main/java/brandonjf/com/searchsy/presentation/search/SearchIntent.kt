@@ -7,6 +7,6 @@ import brandonjf.com.searchsy.base.BaseIntent
  */
 sealed class SearchIntent : BaseIntent {
     object InitialIntent: SearchIntent()
-    object LoadListingsIntent: SearchIntent()
+    class LoadListingsIntent(val searchTerm: String): SearchIntent()
     object RefreshListingsIntent: SearchIntent()
 }   
